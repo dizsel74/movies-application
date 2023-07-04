@@ -14,6 +14,12 @@ module.exports = {
         copy:    'rgb(37, 37, 37)',
       }
     },
+    dropShadow: {
+      '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
+      '4xl': [
+          '0 35px 35px rgba(0, 20px, 20px, #00000024)'
+      ]
+    }
   },
   plugins: [],
 }
