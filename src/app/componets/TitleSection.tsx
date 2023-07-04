@@ -3,7 +3,7 @@ import React from 'react'
 
 const TitleSection = ({ titulo }) => {
   return (
-    <div className='font-semibold text-4xl py-3 capitalize'>
+    <div className='font-semibold text-4xl py-3 capitalize '>
       <h1>
         { titulo }
       </h1>
