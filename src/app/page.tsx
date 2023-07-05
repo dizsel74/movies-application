@@ -16,8 +16,8 @@ export default function Home() {
       <TitleSection titulo={'Popular movies'}/>
       <div className='flex'>
       <SideNav />
-        <div className=' flex flex-wrap gap-2 max-w-6xl'>
 
+        <div className='flex flex-wrap justify-evenly gap-2 max-w-6xl'>
         <CardImg />
         <CardImg />
         <CardImg />
