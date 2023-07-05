@@ -27,6 +27,9 @@ export default function Home() {
         <CardImg />
         <CardImg />
         <CardImg />
+        <CardImg />
+        <CardImg />
+        <CardImg />
         </div>
       
 
