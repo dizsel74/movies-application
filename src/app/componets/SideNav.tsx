@@ -1,12 +1,11 @@
 'use cliente'
 import React from 'react';
-import {PiCaretRightBold} from 'react-icons/pi';
 import Filtros from './Filtros';
 
 
 const SideNav = () => {
   return (
-    <aside className='p-2 w-[300px] overflow-y-auto'>
+    <aside className='py-2 pl-2 pr-5 w-[350px] min-w-[300px] overflow-y-auto overflow-hidden'>
       <Filtros filtrarPor={'sort'}/>
       <Filtros filtrarPor={'where to watch'}/>
       <Filtros filtrarPor={'filters'}/>
