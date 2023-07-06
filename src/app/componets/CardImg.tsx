@@ -6,7 +6,7 @@ import Link from 'next/link';
 const CardImg = ({movieID, imageSrc, title, releaseDate, vote_average}) => {
 
   return (
-    <div className='border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card max-w-min'>
+    <div className='border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card w-[180px]'>
       <Link
         className='cursor-pointer hover:opacity-75'
         href={`/movies/details?key=${movieID}`}>
@@ -16,7 +16,7 @@ const CardImg = ({movieID, imageSrc, title, releaseDate, vote_average}) => {
           width={180}
           height={20}
           priority
-          className='rounded-t-xl min-w-min'
+          className='rounded-t-xl '
         />
       </Link>    
       <div className='movie-data text-lg text-copy pt-7 px-3 pb-5 relative min-w-min'>
