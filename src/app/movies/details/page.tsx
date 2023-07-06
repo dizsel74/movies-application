@@ -89,9 +89,15 @@ useEffect(() => {
                       <span className=''>{movieDetails.release_date}</span>
                       <span className='pl-4'>
                         <TbPointFilled className='inline'/>&nbsp;
-                        {movieDetails.genres.map((genre) => (
-                        <span key={genre.id}>{genre.name}, &nbsp;</span> ))}
-                        </span>
+                             {movieDetails.genres ? (
+                              movieDetails.genres.map((genre, index) => (
+                                <span key={genre.id}>
+                                  {genre.name}
+                                  {index !== movieDetails.genres.length - 1 && ', '}
+                                </span>
+                              ))) : (<span>Loading genres...</span>)
+                            }
+                      </span>
                       <span className=''>
                         <TbPointFilled className='inline pr'/>&nbsp;
                         {movieDetails.vote_count}
@@ -102,7 +108,9 @@ useEffect(() => {
                     <ul className='flex w-full justify-start items-center h-[68px]'>
                     <li className='mr-5 flex'>
                       <div className='bg-sky-950 rounded-full w-12 h-12 mr-4 relative'>
-                        <div className=' text-lg text-white absolute top-2.5 left-2.5'>   {movieDetails.vote_average.toFixed(1)}</div>
+                        <div className=' text-lg text-white absolute top-2.5 left-2.5'>   
+                        {movieDetails.vote_average ? movieDetails.vote_average.toFixed(1) : 'N/A'}
+                        </div>
                       </div>
                       <div className='text-xs font-semibold'>
                         Puntuación <br />por <br />usuario
