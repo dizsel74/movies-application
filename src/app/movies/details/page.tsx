@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-//import Details from '@/app/componets/Details'
 import TitleSection from '@/app/componets/TitleSection'
 import Image from 'next/image'
 import  { useEffect, useState } from 'react';
@@ -9,28 +8,15 @@ import { TbPointFilled } from 'react-icons/tb';
 import { BsFillPlayFill, BsFillHeartFill, BsBookmarkFill, BsStarFill, BsListStars } from 'react-icons/bs';
 
 const DetailsPage = ( ) => {
-  // const DetailsPage = ( {params} ) => {
+ 
   const valores = window.location.search;
-  //console.log('el valor es '+valores);
+  const urlParams = new URLSearchParams(valores);
+  const values = urlParams.values()
+  let idPeli; 
 
-  //Creamos la instancia
-const urlParams = new URLSearchParams(valores);
-
-//Accedemos a los valores
-var producto = urlParams.get('key');
-
-const
-
-  values = urlParams.values()
-  
-
-let idPeli; // Declaración de la variable idPeli
-
-for (const value of values) {
-  idPeli = value; // Asigna cada valor a la variable idPeli
-}
-
-console.log(idPeli); // Imprime cada valor
+  for (const value of values) {
+    idPeli = value; // Asigna cada valor a la variable idPeli
+  }
  
 const [movieDetails, setMovieDetails] = useState(null);
 
@@ -58,46 +44,47 @@ useEffect(() => {
 
   return (
     <div className='min-h-screen'> 
-    {/* <div className='mx-auto min-h-screen max-w-7xl'>  */}
       {movieDetails ? (
         <div className='min-h-screen w-full h-full'>
-          <TitleSection titulo={movieDetails.title}/>
+          <TitleSection titulo=''/>
   
         <div 
-        className='border-b border-black header'
+        className='border-b border-black'
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movieDetails.backdrop_path})`,backgroundSize: 'cover',
         backgroundPosition: 'top left',
         backgroundRepeat: 'no-repeat',}}>
-          <div className='flex justify-center flex-wrap bg-gradient-to-r from-black via-black-00 to-gray-00 keybprd'>
+          <div className='flex justify-center flex-wrap' 
+          style={{ backgroundImage:
+      'linear-gradient(to right, rgba(52.5, 52.5, 52.5, 1) calc((50vw - 170px) - 340px), rgba(52.5, 52.5, 52.5, 0.84) 50%, rgba(52.5, 52.5, 52.5, 0.84) 100%)'}}>
           
-            <div className='grid-cols-1 p-10 flex border-2 border-orange-600 singlecolum'>
-              <section className='flex flex-wrap text-white box-border  border-2 border-green-600 originslheder'>
-                <div className='w-[300px] h-[450px] min-w-[300px] rounded-lg  overflow-hidden border-2 border-blue-600 poster-wraper'>
-                  <div className='w-[300px] h-[450px] min-w-[300px] relative top-0 left-0 block poster'>
-                    <div className=' w-full h-full min-w-full img-poster'>
+            <div className='grid-cols-1 p-10 flex'>
+              <section className='flex flex-wrap text-white box-border'>
+                <div className='w-[300px] h-[450px] min-w-[300px] rounded-lg  overflow-hidden'>
+                  <div className='w-[300px] h-[450px] min-w-[300px] relative top-0 left-0 block'>
+                    <div className=' w-full h-full min-w-full'>
                       <Image 
-                      src={`https://image.tmdb.org/t/p/w300_and_h450_face/${movieDetails.backdrop_path}`}
+                      src={`https://image.tmdb.org/t/p/w300_and_h450_face/${movieDetails.poster_path}`}
                       alt="Backdrop"
                       width={300}
                       height={450}
                       priority
-                      className='w-full h-full min-w-full' /> 
+                      className='w-full h-full min-w-full sombra' /> 
                     </div>
                   </div>
                 </div>
               </section>
               <div className='flex falses'>
-                <section className='flex flex-wrap items-start content-center text-white box-border pl-10 border-2 border-pink-600 header'>
-                  <div className='w-full mb-6 flex flex-wrap ott-flse'>
+                <section className='flex flex-wrap items-start content-center text-white box-border pl-10'>
+                  <div className='w-full mb-6 flex flex-wrap'>
                     <h2 className='w-full text-4xl font-bold'>
-                        <Link href='#' className=''>{movieDetails.title}</Link>
-                        &nbsp;<span className='font-thin  '>(
+                        <Link href='#'>{movieDetails.title}</Link>
+                        &nbsp;<span className='font-thin'>(
                           {new Date(movieDetails.release_date).toLocaleDateString('en-US',{
                             year: 'numeric',
                           })}
                           )</span>
                     </h2>
-                    <div className='flex text-xs mb-6 w-full'>
+                    <div className='flex text-xs mb-6 w-full pt-2'>
                       <span className='border border-gray-50 rounded-sm mr-2 px-1'>PG-13</span>
                       <span className=''>{movieDetails.release_date}</span>
                       <span className='pl-4'>
@@ -153,9 +140,34 @@ useEffect(() => {
                       <BsFillPlayFill className='inline mr-2'/>Play Trailer
                     </li>
                     </ul>
-                    </div>
                   </div>
-                  <div className=''></div>
+                  </div>
+                  <div className='w-full '>
+                    <h3 className='italic font-normal opacity-60 mb-2'>{movieDetails.tagline}</h3>
+                    <h3 className='font-semibold text-xl capitalize mt-2.5 mb-2 '>Resumen</h3>
+                    <p className='mt-2.5'> {movieDetails.overview}</p>
+                    <div className=' w-full '>
+                      <ol className=' flex flex-wrap justify-start mt-5 reltive top-0 left-0'>
+                        <li className='min-w-[140px] w-2/6 pt-5'>
+                          <p className='font-semibold'>Nombre</p>
+                          <p className='text-sm'>Cargo</p>
+                        </li>
+                        <li className='min-w-[140px] w-2/6 pt-5'>
+                          <p className='font-semibold'>Nombre</p>
+                          <p className='text-sm'>Cargo</p>
+                        </li>
+                        <li className='min-w-[140px] w-2/6 pt-5'>
+                          <p className='font-semibold'>Nombre</p>
+                          <p className='text-sm'>Cargo</p>
+                        </li>
+                        <li className='min-w-[140px] w-2/6 pt-5'>
+                          <p className='font-semibold'>Nombre</p>
+                          <p className='text-sm'>Cargo</p>
+                        </li>
+                      </ol>
+                    </div>
+
+                  </div>
 
                 </section>
               </div>
@@ -163,11 +175,6 @@ useEffect(() => {
 
          </div>
        </div>
-
-
-
-
-{/* https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg */}
 
 
         </div>

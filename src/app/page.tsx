@@ -1,11 +1,7 @@
 
 import SideNav from '@/app/componets/SideNav'
 import TitleSection from '@/app/componets/TitleSection'
-import Image from 'next/image'
-
 import 'tailwindcss/tailwind.css';
-import CardImg from './componets/CardImg';
-
 import MovieList from './componets/MovieList';
 
 export default async function Home() {
