@@ -43,11 +43,28 @@ useEffect(() => {
 
 
   return (
-    <div className='min-h-screen'> 
+    <div className='min-h-screen '> 
       {movieDetails ? (
         <div className='min-h-screen w-full h-full'>
-          <TitleSection titulo=''/>
-  
+          {/* <TitleSection titulo=''/> */}
+          <div className='pb-2 pt-3'>
+            <ul className='flex justify-center aling-center'>
+              <li className='pl-4'>
+                <span className='border-b-4 border-sky-400'>Vista</span>
+              </li>
+              <li className='pl-4 cursor-pointer'>
+                <span className='hover:border-b-4 hover: border-sky-400'>General</span> </li>
+              <li className='pl-4 cursor-pointer'>
+                <span className='hover:border-b-4 hover: border-sky-400'>Multimedia</span>
+              </li>
+              <li className='pl-4 cursor-pointer'>
+                <span className='hover:border-b-4 hover: border-sky-400'>Fandom </span>
+              </li>
+              <li className='pl-4 cursor-pointer'>
+                <span className='hover:border-b-4 hover: border-sky-400'>Compartir</span>
+              </li>
+            </ul>
+          </div>
         <div 
         className='border-b border-black'
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movieDetails.backdrop_path})`,backgroundSize: 'cover',
@@ -57,7 +74,7 @@ useEffect(() => {
           style={{ backgroundImage:
       'linear-gradient(to right, rgba(52.5, 52.5, 52.5, 1) calc((50vw - 170px) - 340px), rgba(52.5, 52.5, 52.5, 0.84) 50%, rgba(52.5, 52.5, 52.5, 0.84) 100%)'}}>
           
-            <div className='grid-cols-1 p-10 flex'>
+            <div className='grid-cols-1 px-2 py-10 flex mx-auto max-w-screen-xl'>
               <section className='flex flex-wrap text-white box-border'>
                 <div className='w-[300px] h-[450px] min-w-[300px] rounded-lg  overflow-hidden'>
                   <div className='w-[300px] h-[450px] min-w-[300px] relative top-0 left-0 block'>
