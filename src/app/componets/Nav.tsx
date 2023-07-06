@@ -38,7 +38,7 @@ const  nav = () => {
                   priority
                 />  
               </Link>
-              <ul className='flex space-x-6 justify-center pl-4 items-center cursor-pointer font-semibold'>
+              <ul className='flex space-x-6 justify-center pl-4 items-center cursor-pointer font-semibold z-10'>
                 <li>
                   <span
                     onMouseEnter={handleMouseEnter}
