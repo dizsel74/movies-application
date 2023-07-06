@@ -49,18 +49,18 @@ useEffect(() => {
           {/* <TitleSection titulo=''/> */}
           <div className='pb-2 pt-3'>
             <ul className='flex justify-center aling-center'>
-              <li className='pl-4'>
+              <li className='pl-10'>
                 <span className='border-b-4 border-sky-400'>Vista</span>
               </li>
-              <li className='pl-4 cursor-pointer'>
+              <li className='pl-10 cursor-pointer'>
                 <span className='hover:border-b-4 hover: border-sky-400'>General</span> </li>
-              <li className='pl-4 cursor-pointer'>
+              <li className='pl-10 cursor-pointer'>
                 <span className='hover:border-b-4 hover: border-sky-400'>Multimedia</span>
               </li>
-              <li className='pl-4 cursor-pointer'>
+              <li className='pl-10 cursor-pointer'>
                 <span className='hover:border-b-4 hover: border-sky-400'>Fandom </span>
               </li>
-              <li className='pl-4 cursor-pointer'>
+              <li className='pl-10 cursor-pointer'>
                 <span className='hover:border-b-4 hover: border-sky-400'>Compartir</span>
               </li>
             </ul>
