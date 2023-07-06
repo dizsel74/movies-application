@@ -1,11 +1,27 @@
 'use client'
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useRef } from 'react';
 import {FaSearch, FaBars} from 'react-icons/fa';
 
-
 const  nav = () => {
-  
+
+  // code for the dropdonw
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
 
   return (
     <div className='bg-primary font-sans'>
@@ -23,7 +39,26 @@ const  nav = () => {
                 />  
               </Link>
               <ul className='flex space-x-6 justify-center pl-4 items-center cursor-pointer font-semibold'>
-                <li>Movies</li>
+                <li>
+                  <span
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className='relative'
+                  >Movies
+                    {showDropdown && (
+                      <ul
+                        ref={dropdownRef}
+                        className='absolute bg-white py-1 rounded shadow-lg text-copy capitalize hover:visible'
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <li className='px-4 py-2 hover:bg-gray-200'>Upcoming</li>
+                        <li className='px-4 py-2 hover:bg-gray-200'>Popular</li>
+                        <li className='px-4 py-2 hover:bg-gray-200'>Top rated</li>
+                      </ul>
+                    )}
+                  </span>
+                </li>
                 <li>TV Shows</li>
                 <li>People</li>
                 <li>More</li>
