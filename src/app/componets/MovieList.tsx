@@ -29,10 +29,22 @@ const MovieList = () => {
 
     fetchMovies();
   }, []);
-
+//////////////
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc'
+    }
+  };
+  
+  fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+///////////////////
   return (
-    <div className='flex flex-wrap justify-evenly gap-2 max-w-6xl'>
-      
+    <div className='flex flex-wrap justify-evenly gap-2 max-w-6xl pb-10'>
       {movies.map((movie) => (
         <CardImg
           movieID={movie.id}

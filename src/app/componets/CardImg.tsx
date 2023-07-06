@@ -12,9 +12,9 @@ const CardImg = ({movieID, imageSrc, title, releaseDate, vote_average}) => {
         href={`/movies/details?key=${movieID}`}>
         <Image 
           src={`https://image.tmdb.org/t/p/w220_and_h330_face${imageSrc}`}
-          alt="Poster Movie"
-          width={180}
-          height={20}
+          alt={`Poster Movie ${title}`}
+          width={182}
+          height={373}
           priority
           className='rounded-t-xl '
         />
@@ -24,11 +24,11 @@ const CardImg = ({movieID, imageSrc, title, releaseDate, vote_average}) => {
           <div className=' absolute top-2 left-2 text-base text-white'> {vote_average} </div>
         </div>
         <Link
-          className='cursor-pointer hover:text-cyan-500'
+          className='text-base cursor-pointer hover:text-cyan-500'
           href={`/movies/details?key=${movieID}`}>
           <h2 className='font-bold capitalize cursor-pointer line-clamp-3'>{title}</h2>
         </Link>
-        <p className="text-slate-500">
+        <p className="text-base text-slate-500">
           {new Date(releaseDate).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",

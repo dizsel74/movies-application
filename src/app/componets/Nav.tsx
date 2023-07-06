@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState, useRef } from 'react';
 import {FaSearch, FaBars} from 'react-icons/fa';
 
-const  nav = () => {
+const  Nav = () => {
 
   // code for the dropdonw
   const [showDropdown, setShowDropdown] = useState(false);
@@ -47,8 +47,7 @@ const  nav = () => {
                   >Movies
                     {showDropdown && (
                       <ul
-                        ref={dropdownRef}
-                        className='absolute bg-white py-1 rounded shadow-lg text-copy capitalize hover:visible'
+                        className='absolute bg-white py-1 rounded shadow-lg text-copy capitalize'
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                       >
@@ -79,4 +78,4 @@ const  nav = () => {
   )
 };
 
-export default  nav;
+export default Nav;
