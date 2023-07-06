@@ -7,20 +7,11 @@ import {FaSearch, FaBars} from 'react-icons/fa';
 
 const  Nav = () => {
 
-  // code for the dropdonw
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
-  };
-
-  const handleMouseEnter = () => {
-    setShowDropdown(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
   };
 
   return (
@@ -41,19 +32,19 @@ const  Nav = () => {
               <ul className='flex space-x-6 justify-center pl-4 items-center cursor-pointer font-semibold z-10'>
                 <li>
                   <span
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                     className='relative'
+                    ref={dropdownRef}
+                    onClick={toggleDropdown}
                   >Movies
                     {showDropdown && (
                       <ul
                         className='absolute bg-white py-1 rounded shadow-lg text-copy capitalize'
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        onClick={toggleDropdown}
                       >
                         <li className='px-4 py-2 hover:bg-gray-200'>Upcoming</li>
                         <li className='px-4 py-2 hover:bg-gray-200'>Popular</li>
                         <li className='px-4 py-2 hover:bg-gray-200'>Top rated</li>
+                        
                       </ul>
                     )}
                   </span>
