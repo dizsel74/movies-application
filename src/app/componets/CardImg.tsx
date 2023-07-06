@@ -43,7 +43,13 @@ const CardImg = ({movieID, imageSrc, title, releaseDate, vote_average}) => {
         >
           <h2 className='font-bold capitalize cursor-pointer line-clamp-3'>{title}</h2>
         </Link>
-        <p className='text-slate-500'>{releaseDate}</p>
+        <p className="text-slate-500">
+          {new Date(releaseDate).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          })}
+        </p>
 
       </div>
 

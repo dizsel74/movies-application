@@ -1,10 +1,13 @@
 'use client'
 import React from 'react'
-import Details from '@/app/componets/Details'
+//import Details from '@/app/componets/Details'
 import TitleSection from '@/app/componets/TitleSection'
 import Image from 'next/image'
 import  { useEffect, useState } from 'react';
 import Link from 'next/link'
+import { TbPointFilled } from 'react-icons/tb';
+import { BsFillPlayFill, BsFillHeartFill, BsBookmarkFill, BsStarFill, BsListStars } from 'react-icons/bs';
+
 const DetailsPage = ( ) => {
   // const DetailsPage = ( {params} ) => {
   const valores = window.location.search;
@@ -59,16 +62,7 @@ useEffect(() => {
       {movieDetails ? (
         <div className='min-h-screen w-full h-full'>
           <TitleSection titulo={movieDetails.title}/>
-          {/* <h2>{movieDetails.title}</h2> */}
-
-          {/* <Image 
-          src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movieDetails.backdrop_path}`}
-          alt="Backdrop"
-          width={1920}
-          height={800}
-          priority
-          className='border-b border-black '
-        /> */}
+  
         <div 
         className='border-b border-black header'
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movieDetails.backdrop_path})`,backgroundSize: 'cover',
@@ -95,10 +89,71 @@ useEffect(() => {
               <div className='flex falses'>
                 <section className='flex flex-wrap items-start content-center text-white box-border pl-10 border-2 border-pink-600 header'>
                   <div className='w-full mb-6 flex flex-wrap ott-flse'>
-                    <h2 className='w-full text-4xl font-semibold'>
+                    <h2 className='w-full text-4xl font-bold'>
                         <Link href='#' className=''>{movieDetails.title}</Link>
-                        &nbsp;<span className='font-thin'>({movieDetails.release_date})</span>
+                        &nbsp;<span className='font-thin  '>(
+                          {new Date(movieDetails.release_date).toLocaleDateString('en-US',{
+                            year: 'numeric',
+                          })}
+                          )</span>
                     </h2>
+                    <div className='flex text-xs mb-6 w-full'>
+                      <span className='border border-gray-50 rounded-sm mr-2 px-1'>PG-13</span>
+                      <span className=''>{movieDetails.release_date}</span>
+                      <span className='pl-4'>
+                        <TbPointFilled className='inline'/>&nbsp;
+                        {movieDetails.genres.map((genre) => (
+                        <span key={genre.id}>{genre.name}, &nbsp;</span> ))}
+                        </span>
+                      <span className=''>
+                        <TbPointFilled className='inline pr'/>&nbsp;
+                        {movieDetails.vote_count}
+                        </span>
+                    </div>
+                    <div>
+
+                    <ul className='flex w-full justify-start items-center h-[68px]'>
+                    <li className='mr-5 flex'>
+                      <div className='bg-sky-950 rounded-full w-12 h-12 mr-4 relative'>
+                        <div className=' text-lg text-white absolute top-2.5 left-2.5'>   {movieDetails.vote_average.toFixed(1)}</div>
+                      </div>
+                      <div className='text-xs font-semibold'>
+                        Puntuación <br />por <br />usuario
+                      </div>
+                    </li>
+                    <li className='mr-5'>
+                      <div className='bg-sky-900 rounded-full w-10 h-10 relative'>
+                        <div className=' text-base text-white absolute top-2 left-3'>
+                          <BsListStars className='inline'/>  
+                        </div>
+                      </div>
+                    </li>
+                    <li className='mr-5'>
+                      <div className='bg-sky-900 rounded-full w-10 h-10 relative'>
+                        <div className=' text-base text-white absolute top-2 left-3'>
+                          <BsFillHeartFill className='inline'/>  
+                        </div>
+                      </div>
+                    </li>
+                    <li className='mr-5'>
+                      <div className='bg-sky-900 rounded-full w-10 h-10 relative'>
+                        <div className=' text-base text-white absolute top-2 left-3'>  
+                        <BsBookmarkFill className='inline'/>  
+                        </div>
+                      </div>
+                    </li>
+                    <li className='mr-5'>
+                      <div className='bg-sky-900 rounded-full w-10 h-10 relative'>
+                        <div className=' text-base text-white absolute top-2 left-3'>
+                        <BsStarFill className='inline'/>  
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <BsFillPlayFill className='inline mr-2'/>Play Trailer
+                    </li>
+                    </ul>
+                    </div>
                   </div>
                   <div className=''></div>
 
