@@ -8,7 +8,6 @@ import {FaSearch, FaBars} from 'react-icons/fa';
 const  Nav = () => {
 
   const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -33,7 +32,6 @@ const  Nav = () => {
                 <li>
                   <span
                     className='relative'
-                    ref={dropdownRef}
                     onClick={toggleDropdown}
                   >Movies
                     {showDropdown && (
