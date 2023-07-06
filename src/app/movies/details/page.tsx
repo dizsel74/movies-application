@@ -43,10 +43,9 @@ useEffect(() => {
 
 
   return (
-    <div className='min-h-screen '> 
+    <div className='min-h-screen font-sans'> 
       {movieDetails ? (
         <div className='min-h-screen w-full h-full'>
-          {/* <TitleSection titulo=''/> */}
           <div className='pb-2 pt-3'>
             <ul className='flex justify-center aling-center'>
               <li className='pl-10'>
@@ -68,11 +67,12 @@ useEffect(() => {
         <div 
         className='border-b border-black'
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movieDetails.backdrop_path})`,backgroundSize: 'cover',
-        backgroundPosition: 'top left',
-        backgroundRepeat: 'no-repeat',}}>
+        // backgroundPosition: 'top left',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'left calc((50vw - 170px) - 340px) top',}}>
           <div className='flex justify-center flex-wrap' 
           style={{ backgroundImage:
-      'linear-gradient(to right, rgba(52.5, 52.5, 52.5, 1) calc((50vw - 170px) - 340px), rgba(52.5, 52.5, 52.5, 0.84) 50%, rgba(52.5, 52.5, 52.5, 0.84) 100%)'}}>
+      'linear-gradient(to right, rgba(52.5, 52.5, 52.5, 1) calc((50vw - 170px) - 340px), rgba(52.5, 52.5, 52.5, .84) 50%, rgba(52.5, 52.5, 52.5, 0.84) 100%)'}}>
           
             <div className='grid-cols-1 px-2 py-10 flex mx-auto max-w-screen-xl'>
               <section className='flex flex-wrap text-white box-border'>

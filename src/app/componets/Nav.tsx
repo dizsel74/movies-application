@@ -8,7 +8,7 @@ const  nav = () => {
   
 
   return (
-    <div className='bg-primary '>
+    <div className='bg-primary font-sans'>
         <header className='flex items-center md:px-0 h-16 text-neutral transition-top duration-200 ease-linear mx-auto max-w-7xl'> 
           <div className='justify-between container mx-auto flex items-center pl-2'>
         

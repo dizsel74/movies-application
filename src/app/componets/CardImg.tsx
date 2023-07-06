@@ -6,7 +6,7 @@ import Link from 'next/link';
 const CardImg = ({movieID, imageSrc, title, releaseDate, vote_average}) => {
 
   return (
-    <div className='border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card w-[180px]'>
+    <div className='border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card w-[180px] font-sans'>
       <Link
         className='cursor-pointer hover:opacity-75'
         href={`/movies/details?key=${movieID}`}>
