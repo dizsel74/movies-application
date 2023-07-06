@@ -13,36 +13,7 @@ body {
 }
 
 .movie-card{
-  
-
-  width: calc(100vw - 300px - 80px- var(--discoverColumnPadding)*var(--numberOfDiscoverColumns)))/var(--numberOfDiscoverColumns)); 
-
-  /* max-width: calc((1400px - 80px - 260px - (var(--discoverColumnPadding)*var(--numberOfDiscoverColumns)))/var(--numberOfDiscoverColumns)); */
+  /* max-width: min-content; */
+ /* width: calc(100vw - 300px - 80px- var(--discoverColumnPadding)*var(--numberOfDiscoverColumns)))/var(--numberOfDiscoverColumns)); */
 }
 
-
-
-html {
-  --numberOfDiscoverColumns: 1;
-  --discoverColumnPadding: 30px;
-}
-
-@media only screen and (min-width: 1240px){
-html {
-    --numberOfDiscoverColumns: 5;
-}}
-
-@media only screen and (min-width: 1040px){
-html {
-    --numberOfDiscoverColumns: 4;
-}}
-@media only screen and (min-width: 900px){
-html {
-    --numberOfDiscoverColumns: 3;
-}
-}
-@media only screen and (min-width: 700px){
-html {
-    --numberOfDiscoverColumns: 2;
-}
-}

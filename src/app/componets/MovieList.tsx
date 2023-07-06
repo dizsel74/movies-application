@@ -1,15 +1,15 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
-// aqui
 import  { useEffect, useState } from 'react';
 
-import Link from 'next/link';
+
 import CardImg from './CardImg';
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const API_KEY = '37c25cc13aeb0ec14911a45f19e35079';
+  //const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -35,7 +35,7 @@ const MovieList = () => {
       
       {movies.map((movie) => (
         <CardImg
-          key={movie.id}
+          movieID={movie.id}
           imageSrc={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           title={movie.title}
           releaseDate={movie.release_date}
