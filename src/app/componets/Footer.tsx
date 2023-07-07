@@ -2,26 +2,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
-import {FaSearch, FaBars} from 'react-icons/fa';
+
 
 const Footer= () => {
-
-  // code for the dropdonw
-  const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null);
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
-
-  const handleMouseEnter = () => {
-    setShowDropdown(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
-  };
 
   return (
     <div className='bg-primary font-sans'>

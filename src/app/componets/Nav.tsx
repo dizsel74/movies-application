@@ -2,9 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
-import {FaSearch, FaBars} from 'react-icons/fa';
-import MovieList from './MovieList';
+import { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 const  Nav = () => {
 
@@ -12,15 +11,6 @@ const  Nav = () => {
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
-  };
-
-  const [selectedMenu, setSelectedMenu] = useState('');
-
-  const handleMenuSelection = (menu) => {
-    setSelectedMenu(menu);
-    setShowDropdown(false);
-    console.log('send ' + menu);
-    <MovieList menuSeleted='menu' />
   };
 
   return (

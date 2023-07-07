@@ -11,13 +11,11 @@ export default async function Home() {
     <main className='mx-auto  min-h-screen max-w-7xl'> 
       <TitleSection titulo={'Popular movies'}/>
       <div className='flex'>
-      <SideNav />
-
-      <div className='flex flex-wrap justify-evenly gap-2 max-w-6xl'>
-        <MovieList />
+        <SideNav />
+        <div className='flex flex-wrap justify-evenly gap-2 max-w-6xl'>
+          <MovieList />
+        </div>
       </div>
-
-    </div>
     </main>
    
   )

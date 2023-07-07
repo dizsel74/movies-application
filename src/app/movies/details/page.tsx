@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import TitleSection from '@/app/componets/TitleSection'
 import Image from 'next/image'
 import  { useEffect, useState } from 'react';
 import Link from 'next/link'
@@ -15,10 +14,11 @@ const DetailsPage = ( ) => {
   let idPeli; 
 
   for (const value of values) {
-    idPeli = value; // Asigna cada valor a la variable idPeli
+    idPeli = value; 
   }
  
 const [movieDetails, setMovieDetails] = useState(null);
+const TOKEN_ACCES='Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc';
 
 useEffect(() => {
   const baseUrl = 'https://api.themoviedb.org/3/movie/';
@@ -30,7 +30,7 @@ useEffect(() => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc'
+      Authorization: TOKEN_ACCES
     }
   };
 
