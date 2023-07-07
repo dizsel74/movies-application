@@ -3,13 +3,13 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 
-const CardImg = ( { Key, imageSrc, title, releaseDate, vote_average } ) => {
+const CardImg = ( { key , imageSrc, title, releaseDate, vote_average } ) => {
 
   return (
     <div className='border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card w-[180px] font-sans'>
       <Link
         className='cursor-pointer hover:opacity-75'
-        href={`/movies/details?key=${Key}`}>
+        href={`/movies/details?key=${key}`}>
         <Image 
           src={`https://image.tmdb.org/t/p/w220_and_h330_face${imageSrc}`}
           alt={`Poster Movie ${title}`}
@@ -25,7 +25,7 @@ const CardImg = ( { Key, imageSrc, title, releaseDate, vote_average } ) => {
         </div>
         <Link
           className='text-base cursor-pointer hover:text-cyan-500'
-          href={`/movies/details?key=${Key}`}>
+          href={`/movies/details?key=${key}`}>
           <h2 className='font-bold capitalize cursor-pointer line-clamp-3'>{title}</h2>
         </Link>
         <p className="text-base text-slate-500">
