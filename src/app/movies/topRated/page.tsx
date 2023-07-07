@@ -15,9 +15,15 @@ const Toprated = ( ) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
-        );
+        const options = {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc'
+          }
+        };
+
+        const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
         const data = await response.json();
 
         if (data.results && data.results.length > 0) {
