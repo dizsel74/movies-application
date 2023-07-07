@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
 import {FaSearch, FaBars} from 'react-icons/fa';
+import MovieList from './MovieList';
 
 const  Nav = () => {
 
@@ -11,6 +12,15 @@ const  Nav = () => {
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+
+  const [selectedMenu, setSelectedMenu] = useState('');
+
+  const handleMenuSelection = (menu) => {
+    setSelectedMenu(menu);
+    setShowDropdown(false);
+    console.log('send ' + menu);
+    <MovieList menuSeleted='menu' />
   };
 
   return (
@@ -39,9 +49,15 @@ const  Nav = () => {
                         className='absolute bg-white py-1 rounded shadow-lg text-copy capitalize'
                         onClick={toggleDropdown}
                       >
-                        <li className='px-4 py-2 hover:bg-gray-200'>Upcoming</li>
-                        <li className='px-4 py-2 hover:bg-gray-200'>Popular</li>
-                        <li className='px-4 py-2 hover:bg-gray-200'>Top rated</li>
+                        <li className='px-4 py-2 hover:bg-gray-200'>
+                          <Link href={`/movies/upcomming/`}>Upcoming</Link>
+                        </li>
+                        <li className='px-4 py-2 hover:bg-gray-200'>
+                        <Link href='/'>Popular</Link>
+                         </li>
+                        <li className='px-4 py-2 hover:bg-gray-200'>
+                        <Link href={`/movies/topRated/`}>Top rated</Link>
+                        </li>
                         
                       </ul>
                     )}
