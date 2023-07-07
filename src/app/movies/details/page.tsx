@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
 import  { useEffect, useState } from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 import { TbPointFilled } from 'react-icons/tb';
 import { BsFillPlayFill, BsFillHeartFill, BsBookmarkFill, BsStarFill, BsListStars } from 'react-icons/bs';
 

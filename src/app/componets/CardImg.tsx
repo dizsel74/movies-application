@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 
-const CardImg = ({Key, imageSrc, title, releaseDate, vote_average}) => {
+const CardImg = ( { Key, imageSrc, title, releaseDate, vote_average } ) => {
 
   return (
     <div className='border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card w-[180px] font-sans'>

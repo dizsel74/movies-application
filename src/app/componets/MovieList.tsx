@@ -36,7 +36,7 @@ const MovieList = ( ) => {
     <div className='flex flex-wrap justify-evenly gap-2 max-w-6xl pb-10'>
       {movies.map((movie) => (
         <CardImg
-          key={movie.id}
+          Key={movie.id}
           imageSrc={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
           title={movie.title}
           releaseDate={movie.release_date}
