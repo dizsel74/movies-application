@@ -6,18 +6,21 @@ import Link from 'next/link';
 import { TbPointFilled } from 'react-icons/tb';
 import { BsFillPlayFill, BsFillHeartFill, BsBookmarkFill, BsStarFill, BsListStars } from 'react-icons/bs';
 
-const DetailsPage = ( ) => {
+import { MovieDetails } from '@/app/types';
+
+const DetailsPage: React.FC = ( ) => {
  
   const valores = window.location.search;
   const urlParams = new URLSearchParams(valores);
-  const values = urlParams.values()
-  let idPeli; 
+  const values = Array.from(urlParams.values());
+  let idPeli: string ='';
+
 
   for (const value of values) {
     idPeli = value; 
   }
  
-const [movieDetails, setMovieDetails] = useState(null);
+const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
 const TOKEN_ACCES='Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc';
 
 useEffect(() => {
