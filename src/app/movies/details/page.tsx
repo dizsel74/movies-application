@@ -9,39 +9,44 @@ import { BsFillPlayFill, BsFillHeartFill, BsBookmarkFill, BsStarFill, BsListStar
 import { MovieDetails } from '@/app/types';
 
 const DetailsPage: React.FC = ( ) => {
- 
-  const valores = window.location.search;
-  const urlParams = new URLSearchParams(valores);
-  const values = Array.from(urlParams.values());
-  let idPeli: string ='';
+  const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
+  const TOKEN_ACCES='Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc';
 
+  useEffect(() => {
+    const valores = window.location.search;
+    const urlParams = new URLSearchParams(valores);
+    const values = Array.from(urlParams.values());
+    let idPeli: string ='';
 
-  for (const value of values) {
-    idPeli = value; 
-  }
- 
-const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-const TOKEN_ACCES='Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MyNWNjMTNhZWIwZWMxNDkxMWE0NWYxOWUzNTA3OSIsInN1YiI6IjY0YTRmMGU0YTBiZTI4MDBjYmY2MjQ4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.96i3JKk4jHwXJS70xjZgyLBjxOATbAJDHGotwTGZ7gc';
-
-useEffect(() => {
-  const baseUrl = 'https://api.themoviedb.org/3/movie/';
-  const movieId = idPeli;
-  const language = 'en-US';
-  const url = `${baseUrl}${movieId}?language=${language}`;
-
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: TOKEN_ACCES
+    for (const value of values) {
+      idPeli = value; 
     }
-  };
 
-  fetch(url, options)
-    .then(response => response.json())
-    .then(response => setMovieDetails(response))
-    .catch(err => console.error(err));
-}, [idPeli]);
+    const fetchMovieDetails = async () => {
+      try{ 
+        const baseUrl = 'https://api.themoviedb.org/3/movie/';
+        const movieId = idPeli;
+        const language = 'en-US';
+        const url = `${baseUrl}${movieId}?language=${language}`;
+
+        const options = {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            Authorization: TOKEN_ACCES
+          }
+        };
+
+        const response = await fetch(url, options);
+        const data = await response.json();
+        setMovieDetails(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchMovieDetails();
+  }, []);
 
 
 
@@ -213,4 +218,4 @@ useEffect(() => {
   )
 }
 
-export default DetailsPage 
+export default DetailsPage;
